@@ -16,15 +16,27 @@ public class Login extends HttpServlet{
 	    resp.setContentType("text/html");
 	    PrintWriter out = resp.getWriter();
 	    
-		String firstName = req.getParameter("first_name");
-		String lastName = req.getParameter("last_name");
-		
-		if (firstName.equals("admin") &&
-				lastName.equals("admin")) {
-			out.print("<h3>First Name: admin <br/>"
-					+ "Last name: admin");
-		} else {
-			out.print("<h3>Check again" + req.getRequestURL());
+	    String path = req.getServletPath();
+	    
+	    switch (path) {
+		case "/login":
+			String firstName = req.getParameter("first_name");
+			String lastName = req.getParameter("last_name");
+			
+			if (firstName.equals("admin") &&
+					lastName.equals("admin")) {
+				out.print("<h3>First Name: admin <br/>"
+						+ "Last name: admin");
+			} else {
+				out.print("<h3>Check again");
+			}
+			break;
+		case "/conditionCheck":
+			out.print("<h3> Maths: " + req.getParameter("maths"));
+			out.print("<h3> Maths: " + req.getParameter("physics"));
+			break;
+		default:
+			return;
 		}
 	}
 }

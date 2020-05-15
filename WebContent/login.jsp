@@ -18,7 +18,7 @@
    <form action = "conditionCheck" method = "get" target = "_blank">
          <input type = "checkbox" name = "maths" /> 18+
          <input type = "checkbox" name = "physics"  /> Ghi nhớ
-         <input type = "submit" value = "Select Subject" />
+         <input type = "submit" value = "Submit value" />
       </form>
 </html>
 </body>
