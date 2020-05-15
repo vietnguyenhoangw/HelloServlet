@@ -9,12 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Login extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		// Set response content type
 	    resp.setContentType("text/html");
 	    PrintWriter out = resp.getWriter();
+	    
+	    DBHelper dbHelper = new DBHelper();
+		dbHelper.connect();
+		User user = dbHelper.getUser("admin", "admin");
+		System.out.println("log out: " + user);
 	    
 	    String path = req.getServletPath();
 	    
